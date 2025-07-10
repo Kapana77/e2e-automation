@@ -5,9 +5,10 @@ import com.softwaretestingboard.magento.data.Constants;
 import io.qameta.allure.Link;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static com.softwaretestingboard.magento.data.Constants.*;
 
 @Test(groups = {"[Scenario Name – [SCRUM-T13]"})
-@Link("https://tbcacademy-team.atlassian.net/projects/SCRUM?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCase/SCRUM-T13")
+@Link(JIRA_LINK)
 public class E2ETestAutomated extends BaseTest {
 
     Faker faker = new Faker();
@@ -27,9 +28,8 @@ public class E2ETestAutomated extends BaseTest {
 
     @Test(priority = 1)
     public void goToHomePage() {
-        page.navigate("https://magento.softwaretestingboard.com/");
+        page.navigate(URL);
     }
-
     @Test(priority = 2)
     public void searchProduct() {
         homepageSteps.searchFor(Constants.SEARCH_VALUE).initiateSearch();
