@@ -11,11 +11,7 @@ public class BaseTest {
     protected BrowserContext browserContext;
     protected Page page;
     protected HomeSteps homepageSteps;
-//    protected CartSteps cartSteps;
     protected IndividualOfferSteps individualOfferSteps;
-//    protected RegisterSteps registerSteps;
-//    protected WishListSteps wishListSteps;
-//    protected LoginSteps loginSteps;
     protected CheckoutSteps checkoutSteps;
     protected PaymentSteps paymentSteps;
     protected SuccessSteps successSteps;
@@ -24,17 +20,13 @@ public class BaseTest {
     public void setUp(){
         playwright = Playwright.create();
         BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
-        launchOptions.setHeadless(false);
+        launchOptions.setHeadless(true);
 //        launchOptions.setSlowMo(2000);
         browser = playwright.chromium().launch(launchOptions);
         browserContext = browser.newContext();
         page = browserContext.newPage();
         homepageSteps = new HomeSteps(page);
-//        cartSteps = new CartSteps(page);
         individualOfferSteps = new IndividualOfferSteps(page);
-//        registerSteps = new RegisterSteps(page);
-//        wishListSteps = new WishListSteps(page);
-//        loginSteps = new LoginSteps(page);
         checkoutSteps = new CheckoutSteps(page);
         paymentSteps = new PaymentSteps(page);
         successSteps = new SuccessSteps(page);
